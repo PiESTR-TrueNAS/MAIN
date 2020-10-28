@@ -27,7 +27,7 @@ jobs:
         id: get-current-date
         run: echo "::set-output name=date::$(date '+%d/%m/%Y')"
         shell: bash
-      - uses: EndBug/add-and-commit@v4
+      - uses: EndBug/add-and-commit@v5
         with:
           author_name: Marc Proux
           author_email: marc.proux@outlook.fr
