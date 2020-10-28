@@ -18,8 +18,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
+          token: ${{ secrets.PAT_TOKEN }}
       {{ACTIONS}}
-      - name:
+      - name: Copy all manifest
         run: ( Get-ChildItem -Path . -Filter iocage* ) | Foreach-Object { Copy-Item -Path "$($_.FullName)/manifest.json" -Destination "$($_.Name).json" }
         shell: pwsh
       - name: Get current date
