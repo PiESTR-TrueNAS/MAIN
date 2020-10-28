@@ -14,4 +14,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
       {{ACTIONS}}
+      - name:
+        run: ( Get-ChildItem -Path . -Filter iocage* ) | Foreach-Object { Copy-Item -Path "$($_.FullName)/manifest.json" -Destination "$($_.Name).json" }
+        shell: pwsh
+      - name: Get current date
+        id: get-current-date
+        run: echo "::set-output name=date::$(date '+%d/%m/%Y')"
+        shell: bash
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: master
+          commit_author: PiESTR.Bot <github.bot@piestr.fr>
+          commit_message: "[${{ steps.get-current-date.outputs.date }}] Manifest update"

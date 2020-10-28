@@ -30,6 +30,5 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: master
-          commit: "[${{ steps.get-current-date.outputs.date }}] Manifest update"
           commit_author: PiESTR.Bot <github.bot@piestr.fr>
-          commit_message: Manifest update
+          commit_message: "[${{ steps.get-current-date.outputs.date }}] Manifest workflow update"
