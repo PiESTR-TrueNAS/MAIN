@@ -29,8 +29,8 @@ jobs:
         shell: bash
       - uses: EndBug/add-and-commit@v4
         with:
-          author_name: PiESTR.Bot
-          author.email: github.bot@piestr.fr
+          author_name: Marc Proux
+          author_email: marc.proux@outlook.fr
           message: "[${{ steps.get-current-date.outputs.date }}] Manifest workflow update"
           add: ".github/workflows/manifest.yml"
         env:

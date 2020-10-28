@@ -26,8 +26,11 @@ jobs:
         id: get-current-date
         run: echo "::set-output name=date::$(date '+%d/%m/%Y')"
         shell: bash
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: EndBug/add-and-commit@v4
         with:
-          branch: master
-          commit_author: PiESTR.Bot <github.bot@piestr.fr>
-          commit_message: "[${{ steps.get-current-date.outputs.date }}] Manifest update"
+          author_name: Marc Proux
+          author_email: marc.proux@outlook.fr
+          message: "[${{ steps.get-current-date.outputs.date }}] Manifest update"
+          add: "iocage*.json"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
