@@ -3,6 +3,7 @@ name: Update manifest workflow
 # Controls when the action will run. Triggers the workflow on push or pull request events but
 # only for the main branch
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -21,7 +22,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - name: Build manifest.yml
-        run: ./.github/scripts/update-manifest-workflow_01.py
+        run: .${{ github.workspace }}/.github/scripts/update-manifest-workflow_01.py
         shell: python
       - name: Get current date
         id: get-current-date

@@ -6,7 +6,9 @@ name: Manifest workflow
 
 # Controls when the action will run. Triggers the workflow on push or pull request events but
 # only for the main branch
-on: repository_dispatch
+on:
+  repository_dispatch:
+    types: [ build_application ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
