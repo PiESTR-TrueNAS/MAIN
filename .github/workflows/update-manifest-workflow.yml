@@ -1,0 +1,35 @@
+name: Update manifest workflow
+
+# Controls when the action will run. Triggers the workflow on push or pull request events but
+# only for the main branch
+on:
+  push:
+    branches:
+      - master
+    paths:
+      # Trigger on change in following path
+      - '.github/data/**'
+      # Doesn't trigger when these files change
+      - '!.github/workflows/manifest.yml'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Build manifest.yml
+        run: ./.github/scripts/update-manifest-workflow_01.py
+        shell: python
+      - name: Get current date
+        id: get-current-date
+        run: echo "::set-output name=date::$(date '+%d/%m/%Y')"
+        shell: bash
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: master
+          commit: "[${{ steps.get-current-date.outputs.date }}] Manifest update"
+          commit_author: PiESTR.Bot <github.bot@piestr.fr>
+          commit_message: Manifest update
