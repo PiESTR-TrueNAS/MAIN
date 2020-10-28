@@ -34,4 +34,4 @@ jobs:
           message: "[${{ steps.get-current-date.outputs.date }}] Manifest workflow update"
           add: ".github/workflows/manifest.yml"
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_01 }}
