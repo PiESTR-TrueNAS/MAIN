@@ -27,10 +27,11 @@ jobs:
         id: get-current-date
         run: echo "::set-output name=date::$(date '+%d/%m/%Y')"
         shell: bash
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: EndBug/add-and-commit@v4
         with:
-          branch: master
-          commit_author: PiESTR.Bot <github.bot@piestr.fr>
-          commit_message: "[${{ steps.get-current-date.outputs.date }}] Manifest workflow update"
+          author_name: PiESTR.Bot
+          author.email: github.bot@piestr.fr
+          message: "[${{ steps.get-current-date.outputs.date }}] Manifest workflow update"
+          add: ".github/workflows/manifest.yml"
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
