@@ -22,7 +22,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - name: Build manifest.yml
-        run: .${{ github.workspace }}/.github/scripts/update-manifest-workflow_01.py
+        run: ${{ github.workspace }}/.github/scripts/update-manifest-workflow_01.py
         shell: python
       - name: Get current date
         id: get-current-date
