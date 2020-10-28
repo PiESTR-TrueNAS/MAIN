@@ -32,3 +32,5 @@ jobs:
           branch: master
           commit_author: PiESTR.Bot <github.bot@piestr.fr>
           commit_message: "[${{ steps.get-current-date.outputs.date }}] Manifest workflow update"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
