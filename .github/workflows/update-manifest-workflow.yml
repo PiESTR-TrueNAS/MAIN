@@ -22,8 +22,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - name: Build manifest.yml
-        run: ${{ github.workspace }}/.github/scripts/update-manifest-workflow_01.py
-        shell: python
+        run: python ${{ github.workspace }}/.github/scripts/update-manifest-workflow_01.py
       - name: Get current date
         id: get-current-date
         run: echo "::set-output name=date::$(date '+%d/%m/%Y')"
