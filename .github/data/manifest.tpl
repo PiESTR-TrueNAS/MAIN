@@ -22,7 +22,17 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
       {{ACTIONS}}
       - name: Copy all manifest
-        run: for m in $(ls -1 ${{ github.workspace }}/iocage*/manifest.json); do cp $m ./$( echo $m | cut -d'/' -f 1 ).json; done
+        run: |
+          for m in $(ls -1 ${{ github.workspace }}/iocage*/manifest.json); do
+            filename=$( echo $m | cut -d'/' -f 1 )
+            cp $m ./$filename.json >> &2
+            if [ $? -eq 0 ]; then
+              echo "$m has been copied as $filename.json"
+            else
+              echo "::error file=,line=,col=::Unable to copy $m as $filename.json"
+              exit $?
+            fi
+          done
         shell: bash
       - name: Get current date
         id: get-current-date
