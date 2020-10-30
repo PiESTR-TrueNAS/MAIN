@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
+          token: ${{ secrets.PAT_TOKEN }}
       - uses: actions/checkout@v2
         repository: PiESTR-TrueNAS/iocage-calibreweb
         path: iocage-calibreweb
@@ -27,8 +28,7 @@ jobs:
       - uses: actions/checkout@v2
         repository: PiESTR-TrueNAS/iocage-nginx
         path: iocage-nginx
-
-      - name:
+      - name: Copy all manifest
         run: ( Get-ChildItem -Path . -Filter iocage* ) | Foreach-Object { Copy-Item -Path "$($_.FullName)/manifest.json" -Destination "$($_.Name).json" }
         shell: pwsh
       - name: Get current date
