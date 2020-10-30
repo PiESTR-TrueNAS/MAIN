@@ -24,8 +24,8 @@ jobs:
       - name: Copy all manifest
         run: |
           for m in $(ls -1 ${{ github.workspace }}/iocage*/manifest.json); do
-            filename=$( echo $m | cut -d'/' -f 1 )
-            cp $m ./$filename.json >> &2
+            filename=$( echo $m | rev | cut -d'/' -f2- | rev | xargs basename )
+            cp $m ./$filename.json
             if [ $? -eq 0 ]; then
               echo "$m has been copied as $filename.json"
             else
