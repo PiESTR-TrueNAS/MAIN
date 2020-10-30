@@ -36,7 +36,7 @@ jobs:
         run: |
           for m in $(ls -1 ${{ github.workspace }}/iocage*/manifest.json); do
             filename=$( echo $m | cut -d'/' -f 1 )
-            cp $m ./$filename.json >> &2
+            cp $m ./$filename.json
             if [ $? -eq 0 ]; then
               echo "$m has been copied as $filename.json"
             else
