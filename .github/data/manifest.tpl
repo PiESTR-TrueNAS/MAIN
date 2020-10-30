@@ -7,6 +7,7 @@ name: Manifest workflow
 # Controls when the action will run. Triggers the workflow on push or pull request events but
 # only for the main branch
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [ build_application ]
 
@@ -21,8 +22,8 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
       {{ACTIONS}}
       - name: Copy all manifest
-        run: ( Get-ChildItem -Path . -Filter iocage* ) | Foreach-Object { Copy-Item -Path "$($_.FullName)/manifest.json" -Destination "$($_.Name).json" }
-        shell: pwsh
+        run: for m in $(ls -1 ${{ github.workspace }}/iocage*/manifest.json); do cp $m ./$( echo $m | cut -d'/' -f 1 ).json; done
+        shell: bash
       - name: Get current date
         id: get-current-date
         run: echo "::set-output name=date::$(date '+%d/%m/%Y')"
