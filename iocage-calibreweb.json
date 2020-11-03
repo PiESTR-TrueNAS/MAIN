@@ -1,19 +1,21 @@
 {
+  "official": false,
+  "revision": "0",
   "name": "UNOFFICIAL_CalibreWeb",
   "release": "12.1-RELEASE",
   "artifact": "https://github.com/PiESTR-TrueNAS/iocage-calibreweb.git",
-  "official": false,
   "properties": {
-    "boot": 1,
-    "bpf": 1,
-    "dhcp": 1,
-    "vnet": 1
-  },
-  "devfs_ruleset": {
-
+    "boot": "1",
+    "bpf": "1",
+    "dhcp": "1",
+    "vnet": "1"
   },
   "pkgs": [
-    "git", "py37-pip", "python", "sqlite3", "py37-sqlite3"
+    "git",
+    "py37-pip",
+    "python",
+    "sqlite3",
+    "py37-sqlite3"
   ],
   "packagesite": "http://pkg.FreeBSD.org/${ABI}/latest",
   "fingerprints": {
@@ -23,6 +25,5 @@
         "fingerprint": "b0170035af3acc5f3f3ae1859dc717101b4e6c1d0a794ad554928ca0cbb2f438"
       }
     ]
-  },
-  "revision": "0"
+  }
 }
