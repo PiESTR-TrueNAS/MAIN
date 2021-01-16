@@ -32,6 +32,10 @@ jobs:
         with:
           repository: PiESTR-TrueNAS/iocage-nginx
           path: iocage-nginx
+      - uses: actions/checkout@v2
+        with:
+          repository: PiESTR-TrueNAS/iocage-plugin-jdownloader
+          path: iocage-plugin-jdownloader
       - name: Copy all manifest
         run: |
           for m in $(ls -1 ${{ github.workspace }}/iocage*/manifest.json); do
