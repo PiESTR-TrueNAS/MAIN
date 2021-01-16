@@ -51,3 +51,4 @@ result = result.rstrip()
 MANIFEST_TEMPLATE = re.sub( '[\t ]+{{ACTIONS}}', result, MANIFEST_TEMPLATE )
 with open( OUTPUT_FILE, 'w' ) as file:
   file.write( MANIFEST_TEMPLATE )
+  print MANIFEST_TEMPLATE
