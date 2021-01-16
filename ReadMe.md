@@ -11,9 +11,14 @@ Download the plugin manifest file to your local file system.
 fetch https://raw.githubusercontent.com/PiESTR-TrueNAS/manifest/master/<manifest>.json
 ```
 
-Install the plugin. Adjust the network settings as needed.
+Install the plugin. Adjust the network settings as needed. More information available on jail repository.
 ```bash
 iocage fetch -P <manifest>.json
 ```
 
 ## Plugin manifest files
+- [iocage-automation-n8n](https://github.com/PiESTR-TrueNAS/iocage-automation-n8n)
+- [iocage-calibreweb](https://github.com/PiESTR-TrueNAS/iocage-calibreweb)
+- [iocage-dyndns](https://github.com/PiESTR-TrueNAS/iocage-dyndns)
+- [iocage-nginx](https://github.com/PiESTR-TrueNAS/iocage-nginx)
+- [iocage-plugin-jdownloader](https://github.com/PiESTR-TrueNAS/iocage-plugin-jdownloader)

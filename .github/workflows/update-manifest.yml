@@ -22,6 +22,10 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
       - uses: actions/checkout@v2
         with:
+          repository: PiESTR-TrueNAS/iocage-automation-n8n
+          path: iocage-automation-n8n
+      - uses: actions/checkout@v2
+        with:
           repository: PiESTR-TrueNAS/iocage-calibreweb
           path: iocage-calibreweb
       - uses: actions/checkout@v2
@@ -49,6 +53,8 @@ jobs:
             fi
           done
         shell: bash
+      - name: Build ReadMe.md
+        run: python ${{ github.workspace }}/.github/scripts/update-manifest_01.py
       - name: Get current date
         id: get-current-date
         run: echo "::set-output name=date::$(date '+%d/%m/%Y')"

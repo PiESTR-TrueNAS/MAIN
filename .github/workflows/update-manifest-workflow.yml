@@ -11,7 +11,8 @@ on:
       # Trigger on change in following path
       - '.github/data/**'
       # Doesn't trigger when these files change
-      - '!.github/workflows/manifest.yml'
+      - '!.github/workflows/update-manifest-workflow.yml'
+      - '!.github/workflows/update-manifest.yml'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
