@@ -34,6 +34,8 @@ jobs:
             fi
           done
         shell: bash
+      - name: Build ReadMe.md
+        run: python ${{ github.workspace }}/.github/scripts/update-manifest_01.py
       - name: Get current date
         id: get-current-date
         run: echo "::set-output name=date::$(date '+%d/%m/%Y')"

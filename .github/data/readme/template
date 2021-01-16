@@ -17,3 +17,4 @@ iocage fetch -P <manifest>.json
 ```
 
 ## Plugin manifest files
+{{PLUGINS}}

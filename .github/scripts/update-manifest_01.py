@@ -13,10 +13,10 @@ else:
 
 
 # Defining some constant
-ACTION_TEMPLATE_FILE   = os.path.join( WORKSPACE, ".github/data/update-manifest/01" )
-MANIFEST_TEMPLATE_FILE = os.path.join( WORKSPACE, ".github/data/update-manifest/template" )
+ACTION_TEMPLATE_FILE   = os.path.join( WORKSPACE, ".github/data/readme/01" )
+MANIFEST_TEMPLATE_FILE = os.path.join( WORKSPACE, ".github/data/readme/template" )
 REPOSITORIES_DATA_FILE = os.path.join( WORKSPACE, ".github/data/repositories.data" )
-OUTPUT_FILE            = os.path.join( WORKSPACE, ".github/workflows/update-manifest.yml" )
+OUTPUT_FILE            = os.path.join( WORKSPACE, "ReadMe.md" )
 
 
 
