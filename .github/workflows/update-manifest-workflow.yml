@@ -34,6 +34,6 @@ jobs:
           author_name: Marc Proux
           author_email: marc.proux@outlook.fr
           message: "[${{ steps.get-current-date.outputs.date }}] Manifest workflow update"
-          add: ".github/workflows/manifest.yml"
+          add: ".github/workflows/update-manifest.yml"
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
