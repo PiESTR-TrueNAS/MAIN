@@ -23,7 +23,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.PAT_TOKEN }}
-      - name: Build manifest.yml
+      - name: Build update-manifest-workflow_01.yml
         run: python ${{ github.workspace }}/.github/scripts/update-manifest-workflow_01.py
       - name: Get current date
         id: get-current-date
@@ -37,3 +37,11 @@ jobs:
           add: ".github/workflows/update-manifest.yml"
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+      - name: Trigger manifest repository
+        run: |
+          curl -XPOST \
+          -u "${{ secrets.PAT_USERNAME }}:${{ secrets.PAT_TOKEN }}" \
+          -H "Accept: application/vnd.github.everest-preview+json" \
+          -H "Content-Type: application/json" \
+          https://api.github.com/repos/${{ secrets.MANIFEST_REPOSITORY }}/dispatches \
+          --data '{"event_type": "build_application"}'
