@@ -34,8 +34,8 @@ jobs:
           path: iocage-dyndns
       - uses: actions/checkout@v2
         with:
-          repository: PiESTR-TrueNAS/iocage-nginx
-          path: iocage-nginx
+          repository: PiESTR-TrueNAS/iocage-web-nginx
+          path: iocage-web-nginx
       - uses: actions/checkout@v2
         with:
           repository: PiESTR-TrueNAS/iocage-plugin-jdownloader
