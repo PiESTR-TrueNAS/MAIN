@@ -26,20 +26,24 @@ jobs:
           path: iocage-automation-n8n
       - uses: actions/checkout@v2
         with:
-          repository: PiESTR-TrueNAS/iocage-calibreweb
-          path: iocage-calibreweb
-      - uses: actions/checkout@v2
-        with:
-          repository: PiESTR-TrueNAS/iocage-dyndns
-          path: iocage-dyndns
-      - uses: actions/checkout@v2
-        with:
-          repository: PiESTR-TrueNAS/iocage-web-nginx
-          path: iocage-web-nginx
+          repository: PiESTR-TrueNAS/iocage-network-dyndns
+          path: iocage-network-dyndns
       - uses: actions/checkout@v2
         with:
           repository: PiESTR-TrueNAS/iocage-plugin-jdownloader
           path: iocage-plugin-jdownloader
+      - uses: actions/checkout@v2
+        with:
+          repository: PiESTR-TrueNAS/iocage-proxy-traefik
+          path: iocage-proxy-traefik
+      - uses: actions/checkout@v2
+        with:
+          repository: PiESTR-TrueNAS/iocage-web-nginx
+          path: iocage-web-nginx
+      - name: Delete current manifests
+        run: |
+          rm -fv iocage*.json
+        shell: bash
       - name: Copy all manifest
         run: |
           for m in $(ls -1 ${{ github.workspace }}/iocage*/manifest.json); do
