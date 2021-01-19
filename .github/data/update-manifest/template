@@ -21,6 +21,10 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.PAT_TOKEN }}
       {{ACTIONS}}
+      - name: Delete current manifests
+        run: |
+          rm -fv iocage*.json
+        shell: bash
       - name: Copy all manifest
         run: |
           for m in $(ls -1 ${{ github.workspace }}/iocage*/manifest.json); do
