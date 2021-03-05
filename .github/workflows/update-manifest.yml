@@ -30,6 +30,10 @@ jobs:
           path: iocage-network-dyndns
       - uses: actions/checkout@v2
         with:
+          repository: PiESTR-TrueNAS/iocage-network-wireguard
+          path: iocage-network-wireguard
+      - uses: actions/checkout@v2
+        with:
           repository: PiESTR-TrueNAS/iocage-plugin-jdownloader
           path: iocage-plugin-jdownloader
       - uses: actions/checkout@v2
