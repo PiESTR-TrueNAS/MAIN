@@ -72,6 +72,6 @@ jobs:
           author_name: Marc Proux
           author_email: marc.proux@outlook.fr
           message: "[${{ steps.get-current-date.outputs.date }}] Manifest update"
-          add: "iocage*.json"
+          add: "iocage*.json ReadMe.md"
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
