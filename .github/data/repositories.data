@@ -1,5 +1,6 @@
 PiESTR-TrueNAS/iocage-automation-n8n
 PiESTR-TrueNAS/iocage-network-dyndns
+PiESTR-TrueNAS/iocage-network-wireguard
 PiESTR-TrueNAS/iocage-plugin-jdownloader
 PiESTR-TrueNAS/iocage-proxy-traefik
 PiESTR-TrueNAS/iocage-web-nginx
